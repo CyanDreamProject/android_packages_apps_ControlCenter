@@ -75,6 +75,9 @@ public class SplashScreen extends Activity {
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				} catch (NullPointerException e) {
+					e.printStackTrace();
+					finish();
 				}
 
 			}
@@ -111,8 +114,10 @@ public class SplashScreen extends Activity {
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+						finish();
 					}
-
 				}
 
 				return null;
