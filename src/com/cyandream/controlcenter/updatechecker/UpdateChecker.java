@@ -41,7 +41,8 @@ public class UpdateChecker extends Activity {
 	private DownloadManager mgr=null;
 	private long lastDownload=-1L;;
 	DefaultHttpClient httpclient = new DefaultHttpClient();
-    @Override
+    @SuppressWarnings("unused")
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.updatecheck);
@@ -197,7 +198,8 @@ public class UpdateChecker extends Activity {
         }
       };
 
-      public void startdl (final View view) {
+      @SuppressWarnings("unused")
+	public void startdl (final View view) {
     	Button button = (Button) findViewById(R.id.start);
         button.setEnabled(false);
     	Intent i = getIntent();
@@ -249,8 +251,6 @@ public class UpdateChecker extends Activity {
       public void flashupdate2 (final View view) {
     	        Process process = null;
     	        try {
-    	            Intent i = getIntent();
-    	            String filename = i.getStringExtra("filename");
     	            process = Runtime.getRuntime().exec("su");
     	            DataOutputStream os = new DataOutputStream(process.getOutputStream());
     	            os = new DataOutputStream(process.getOutputStream());
@@ -269,7 +269,8 @@ public class UpdateChecker extends Activity {
             @SuppressWarnings("unused")
       		boolean deleted = file.delete();
         }
-      public void createzip (final View view) {
+      @SuppressWarnings("unused")
+	public void createzip (final View view) {
          	Intent i = getIntent();
         	String upgradefrom = i.getStringExtra("upgradefrom");
         	String filename = i.getStringExtra("filename");

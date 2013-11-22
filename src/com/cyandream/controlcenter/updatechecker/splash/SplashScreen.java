@@ -12,7 +12,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.TextView;
 
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
