@@ -324,6 +324,7 @@ public class UpdateChecker extends Activity {
             if(item.getItemId() == R.id.item1){
             	startActivity (new Intent (this,SplashScreen.class));
                 Toast.makeText(UpdateChecker.this, getString(R.string.updated), Toast.LENGTH_LONG).show();
+                finish();
                 return true;
                 }
             return super.onOptionsItemSelected(item);
