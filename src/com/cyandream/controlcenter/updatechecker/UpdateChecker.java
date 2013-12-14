@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -249,6 +250,12 @@ public class UpdateChecker extends Activity {
           .show();
         }
       public void flashupdate2 (final View view) {
+    	  try {
+			createmd5();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
     	        Process process = null;
     	        try {
     	            process = Runtime.getRuntime().exec("su");
@@ -262,12 +269,24 @@ public class UpdateChecker extends Activity {
     	            e.printStackTrace();
     	    }
       }
-      public void delfile2 (final View view) {
+      public void createmd5 () throws IOException {
+      	  Intent i = getIntent();
+       	  String filename = i.getStringExtra("filename");
+      	  String md5sum = i.getStringExtra("md5sum");
+    	  String md5file = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + filename + ".zip.md5";
+    	  String md5hash = md5sum + " *" + filename + ".zip";
+    	  FileOutputStream fos = openFileOutput(md5file, Context.MODE_PRIVATE);
+    	  fos.write(md5hash.getBytes());
+    	  fos.close();
+      }
+      @SuppressWarnings("unused")
+	public void delfile2 (final View view) {
          	Intent i = getIntent();
         	String upgradefrom = i.getStringExtra("upgradefrom");
       	  File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + upgradefrom);
-            @SuppressWarnings("unused")
-      		boolean deleted = file.delete();
+      	String upgradefrommd5 = i.getStringExtra("upgradefrom");
+    	  File filemd5 = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + upgradefrom + ".md5");
+            boolean deleted = file.delete();
         }
       @SuppressWarnings("unused")
 	public void createzip (final View view) {
