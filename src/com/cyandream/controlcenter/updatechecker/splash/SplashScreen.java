@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class SplashScreen extends Activity {
 	SharedPreferences preferences;
 	DefaultHttpClient httpclient = new DefaultHttpClient();
-    String version, size, installupdate, filename, upgradefrom, otasize, md5sum;
+    String version, size, installupdate, filename, upgradefrom, otasize;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,6 @@ public class SplashScreen extends Activity {
 					version = jObj.getString("version");
 					size = jObj.getString("size");
 					otasize = jObj.getString("otasize");
-					md5sum = jObj.getString("md5sum");
 					installupdate = jObj.getString("installupdate");
 					filename = jObj.getString("filename");
 					upgradefrom = jObj.getString("upgradefrom");
@@ -133,7 +132,6 @@ public class SplashScreen extends Activity {
 			i.putExtra("currentversion", version);
 			i.putExtra("size", size);
 			i.putExtra("otasize", otasize);
-			i.putExtra("md5sum", md5sum);
 			i.putExtra("installupdate", installupdate);
 			i.putExtra("filename", filename);
 			i.putExtra("upgradefrom", upgradefrom);
