@@ -12,7 +12,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.TextView;
 
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
@@ -76,6 +75,9 @@ public class SplashScreen extends Activity {
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				} catch (NullPointerException e) {
+					e.printStackTrace();
+					finish();
 				}
 
 			}
@@ -112,8 +114,10 @@ public class SplashScreen extends Activity {
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+						finish();
 					}
-
 				}
 
 				return null;
