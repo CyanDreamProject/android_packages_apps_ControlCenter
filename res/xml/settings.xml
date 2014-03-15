@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/settings">
-        <CheckBoxPreference  android:key="nightly" android:title="@string/buildtype" android:summary="@string/buildtype_desc" android:enabled="true" android:shouldDisableView="true" android:defaultValue="false"/>
+        <ListPreference android:key="buildtype" android:title="@string/buildtype" android:summary="@string/buildtype_desc" android:defaultValue="-release" android:entries="@array/buildtype_select" android:entryValues="@array/buildtype_select_values" />
     </PreferenceCategory>
-    
 
 </PreferenceScreen>

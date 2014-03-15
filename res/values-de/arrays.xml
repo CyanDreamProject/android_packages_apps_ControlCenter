@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string-array name="buildtype_select">
+        <item name="release">Stabile Bauten</item>
+        <item name="nightly">Nächtliche Bauten</item>
+        <item name="experimental">Versuchsbauten</item>
+    </string-array>
+
+</resources>

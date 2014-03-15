@@ -91,7 +91,7 @@ public class UpdateChecker extends Activity {
         }
         mTextView.setText(getString(R.string.current) + " " + currentversion);
         mTextView2.setText(getString(R.string.installed) + " " + android.os.Build.VERSION.INCREMENTAL);
-        ((TextView)findViewById(R.id.installedversion)).setText(android.os.Build.VERSION.INCREMENTAL.equals(currentversion) ? getString(R.string.noupdates) : getString(R.string.updatesavalibale));
+            ((TextView)findViewById(R.id.installedversion)).setText(filename.equals("DoNotFlash") ? getString(R.string.notsupported) : android.os.Build.VERSION.INCREMENTAL.equals(currentversion) ? getString(R.string.noupdates) : getString(R.string.updatesavailable));
         mgr=(DownloadManager)getSystemService(DOWNLOAD_SERVICE);
         registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
       }

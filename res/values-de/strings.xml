@@ -7,7 +7,7 @@
     <string name="app_name">Kommandozentrale</string>
     <string name="refresh">Aktualisieren</string>
     <string name="wait">Bitte warten...</string>
-    <string name="updatesavalibale">Update verfügbar!</string>
+    <string name="updatesavailable">Update verfügbar!</string>
     <string name="noupdates">ROM aktuell!</string>
     <string name="changelog">Changelog</string>
     <string name="ready">Neue Build online!</string>
@@ -31,6 +31,6 @@
     <string name="no">Nein</string>
     
     <string name="settings">Einstellungen</string>
-    <string name="buildtype">Nightly-Builds</string>
-    <string name="buildtype_desc">Bitte wähle ob du nach Nightly-Builds suchen möchtest.</string>
+    <string name="buildtype">Bauart</string>
+    <string name="buildtype_desc">Bitte wähle, nach welcher Art von Builds du suchen möchtest.</string>
 </resources>

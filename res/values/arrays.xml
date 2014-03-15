@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string-array name="buildtype_select">
+        <item name="release">Releases</item>
+        <item name="nightly">Nightlies</item>
+        <item name="experimental">Experimentals</item>
+    </string-array>
+
+    <string-array name="buildtype_select_values">
+        <item name="release">-release</item>
+        <item name="nightly"></item>
+        <item name="experimental">-experimental</item>
+    </string-array>
+
+</resources>

@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class SplashScreen extends Activity {
 	SharedPreferences preferences;
 	DefaultHttpClient httpclient = new DefaultHttpClient();
-    String version, size, installupdate, filename, upgradefrom, otasize;
+    String version, size, installupdate, filename, upgradefrom, otasize, buildtype;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,23 +42,11 @@ public class SplashScreen extends Activity {
 
 		@Override
 		protected Void doInBackground(Void... arg0) {
-			Boolean nightly = preferences.getBoolean("nightly", false);
-			
-			if(!nightly) {
-				String usenightly = "-release";
-			/*
-			 * Will make http call here This call will download required data
-			 * before launching the app 
-			 * example: 
-			 * 1. Downloading and storing SQLite 
-			 * 2. Downloading images 
-			 * 3. Parsing the xml / json 
-			 * 4. Sending device information to server 
-			 * 5. etc.,
-			 */
-			JsonParser jsonParser = new JsonParser();
-			String json = jsonParser
-					.getJSONFromUrl("http://yanniks.de/roms/cd-" + android.os.Build.PRODUCT + usenightly + ".json" );
+            String buildtype;
+            buildtype = preferences.getString("buildtype","-release");
+            JsonParser jsonParser = new JsonParser();
+			    String json = jsonParser
+					.getJSONFromUrl("http://yanniks.de/roms/cd-" + android.os.Build.PRODUCT + buildtype + ".json" );
 			if (json != null) {
 				try {
 					JSONObject jObj = new JSONObject(json)
@@ -73,55 +61,14 @@ public class SplashScreen extends Activity {
 					Log.e("Current version: ", version + ", " + size + ", install update: " + installupdate);
 
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (NullPointerException e) {
 					e.printStackTrace();
 					finish();
 				}
-
-			}
+            }
 
 			return null;
-			} else {
-				String usenightly = "";
-				/*
-				 * Will make http call here This call will download required data
-				 * before launching the app 
-				 * example: 
-				 * 1. Downloading and storing SQLite 
-				 * 2. Downloading images 
-				 * 3. Parsing the xml / json 
-				 * 4. Sending device information to server 
-				 * 5. etc.,
-				 */
-				JsonParser jsonParser = new JsonParser();
-				String json = jsonParser
-						.getJSONFromUrl("http://yanniks.de/roms/cd-" + android.os.Build.PRODUCT + usenightly + ".json" );
-				if (json != null) {
-					try {
-						JSONObject jObj = new JSONObject(json)
-								.getJSONObject("rominfo");
-						version = jObj.getString("version");
-						size = jObj.getString("size");
-						otasize = jObj.getString("otasize");
-						installupdate = jObj.getString("installupdate");
-						filename = jObj.getString("filename");
-						upgradefrom = jObj.getString("upgradefrom");
-
-						Log.e("Current version: ", version + ", " + size + ", install update: " + installupdate);
-
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (NullPointerException e) {
-						e.printStackTrace();
-						finish();
-					}
-				}
-
-				return null;
-			}
 		}
 
 
@@ -138,7 +85,5 @@ public class SplashScreen extends Activity {
 			startActivity(i);
 			finish();
 		}
-
-	}
-
+    }
 }
