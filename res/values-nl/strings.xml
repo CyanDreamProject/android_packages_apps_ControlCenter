@@ -31,6 +31,6 @@
     <string name="no">Nee</string>
     
     <string name="settings">Instellingen</string>
-    <string name="buildtype">Nightly builds</string>
-    <string name="buildtype_desc">Klik hier als u wilt zoeken naar nightlies</string>
+    <string name="buildtype">Bouwtype</string>
+    <string name="buildtype_desc">Selecteer alstublieft uw bouwtype waar u voor wilt zoeken</string>
 </resources>
