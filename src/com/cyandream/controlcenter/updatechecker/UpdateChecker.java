@@ -106,7 +106,7 @@ public class UpdateChecker extends Activity {
       public void startDownload() {
         Intent i = getIntent();
         String filename = i.getStringExtra("filename");
-        Uri uri=Uri.parse("http://yauniks.dynvpn.de:85/jenkins/mirror/" + filename + ".zip" );
+        Uri uri=Uri.parse("http://amfox.eu:8080/updatechecker.php?file=" + filename + ".zip" );
         Environment
           .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
           .mkdirs();
@@ -127,7 +127,7 @@ public class UpdateChecker extends Activity {
       public void startDownloadOTA() {
           Intent i = getIntent();
           String filename = i.getStringExtra("filename");
-          Uri uri=Uri.parse("http://yauniks.dynvpn.de:85/jenkins/mirror/" + filename + ".patch" );
+          Uri uri=Uri.parse("http://amfox.eu:8080/updatechecker.php?file=" + filename + ".patch" );
           Environment
             .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
             .mkdirs();
